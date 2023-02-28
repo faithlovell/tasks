@@ -28,7 +28,10 @@ export function tripleNumbers(numbers: number[]): number[] {
  * the number cannot be parsed as an integer, convert it to 0 instead.
  */
 export function stringsToIntegers(numbers: string[]): number[] {
-    return [];
+    const newnumbers = numbers.map((num: string): number =>
+        parseInt(num) ? parseInt(num) : 0
+    );
+    return newnumbers;
 }
 
 /**
@@ -39,7 +42,11 @@ export function stringsToIntegers(numbers: string[]): number[] {
  */
 // Remember, you can write functions as lambdas too! They work exactly the same.
 export const removeDollars = (amounts: string[]): number[] => {
-    return [];
+    const newamounts = amounts.map((amount: string): string =>
+        amount.includes("$") ? amount.substring(1, amount.length) : amount
+    );
+    const neweramounts = stringsToIntegers(newamounts);
+    return neweramounts;
 };
 
 /**
@@ -48,7 +55,13 @@ export const removeDollars = (amounts: string[]): number[] => {
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    return [];
+    const capexclaim = messages.map((message: string): string =>
+        message.includes("!") ? message.toUpperCase() : message
+    );
+    const nomarks = capexclaim.filter(
+        (message: string): boolean => !message.includes("?")
+    );
+    return nomarks;
 };
 
 /**
