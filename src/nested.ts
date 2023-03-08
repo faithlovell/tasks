@@ -250,11 +250,14 @@ export function editOption(
     newOption: string
 ): Question[] {
     const newquestions = questions.map(copyoptions);
+    function replace(options: string[]): void {
+        options[targetOptionIndex] = newOption;
+    }
     function insertoption(question: Question): string[] {
         const newoptions = [...question.options];
         targetOptionIndex == -1
             ? newoptions.push(newOption)
-            : (newoptions[targetOptionIndex] = newOption);
+            : replace(newoptions);
         return newoptions;
     }
     function changeifid(question: Question): Question {
