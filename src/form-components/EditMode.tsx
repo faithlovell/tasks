@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Col, Form, Row } from "react-bootstrap";
 
 export function EditMode(): JSX.Element {
     const [canEdit, setCanEdit] = useState<boolean>(false);
